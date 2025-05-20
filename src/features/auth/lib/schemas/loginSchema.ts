@@ -7,6 +7,9 @@ export const loginSchema = z.object({
     .string()
     .min(3, { message: "Минимальное кол-во символов 3" })
     .email({ message: "Не правильный адрес почты" }),
-  password: z.string().min(5, { message: "Минимальное кол-во символов 5" }),
+  password: z
+    .string()
+    .min(1, 'Password is required')
+    .min(3, { message: "Password must be at least 3 characters long" }), 
   rememberMe: z.boolean(),
 })
